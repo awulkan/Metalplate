@@ -1,5 +1,5 @@
 ## Metalplate
-#### A Metalsmith boilerplate for blogs
+#### A Metalsmith boilerplate with blog functionality
 This project is still under construction. I hope to have it working soon though!
 
 

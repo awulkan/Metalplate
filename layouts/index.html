@@ -1,0 +1,30 @@
+{{> header }}
+<h1>{{ site.name }}</h1>
+
+{{#each pagination.files}}
+<ul class="recent">
+    <li>
+        <div class="title"><a href="{{baseUrl}}/{{ this.path }}/">{{ this.title }}</a></div>
+        <div class="date">{{ this.date }}</div>
+    </li>
+</ul>
+{{/each}}
+<!--
+<ul class="recent">
+    {{#each articles }}
+    <li>
+        <div class="title"><a href="{{ path }}">{{ title }}</a></div>
+        <div class="date">{{ date }}</div>
+    </li>
+    {{/each}}
+</ul>-->
+
+{{#if pagination.previous}}
+  <a href="{{baseUrl}}/{{pagination.previous.path}}">Previous</a>
+{{/if}}
+
+{{#if pagination.next}}
+  <a href="{{baseUrl}}/{{pagination.next.path}}/">Next</a>
+{{/if}}
+
+{{> footer }}

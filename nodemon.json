@@ -1,0 +1,10 @@
+{
+    "ignore": [
+        "public/*",
+        "node_modules/*",
+        "assets/*",
+        "modules/vendor/*"
+    ],
+    "ext": "js, hbs, scss, css, md, html, yml",
+    "no_delay": "200ms"
+}

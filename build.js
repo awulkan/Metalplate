@@ -31,12 +31,17 @@ metalsmith(__dirname)
             perPage: 2,
             layout: 'index.html',
             first: 'index.html',
-            path: 'p/:num/index.html',
+            path: 'page/:num/index.html',
         }
     }))
     .use(permalinks({
         relative: false,
         pattern: ':title',
+        // each linkset defines a match, and any other desired option
+        linksets: [{
+            match: { collection: 'articles' },
+            pattern: 'blog/:title',
+        }]
     }))
     .use(assets({
         source: './src/assets/css', // relative to the working directory
@@ -48,6 +53,10 @@ metalsmith(__dirname)
         default: "article.html",
         pattern: ["*/*/*.html", "*/*.html", "*.html"],
         partials: "./layouts/partials"
+    }))
+    .use(sitemap({
+        "hostname": "https://www.example.com",
+        "omitIndex": true
     }))
     .build((err) => {
         if (err) {

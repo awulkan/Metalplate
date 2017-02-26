@@ -5,7 +5,7 @@
 <ul class="recent">
     <li>
         <div class="title"><a href="/{{ path }}/">{{ title }}</a></div>
-        <div class="date">{{ date }}</div>
+        <div class="date">{{formatTime date "YYYY-MM-DD" }}</div>
     </li>
 </ul>
 {{/each}}

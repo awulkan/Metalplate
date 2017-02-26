@@ -5,7 +5,7 @@
     <article>
       <h1>{{ title }}</h1>
       <div class="meta">
-          {{#if date}}Published: {{ date }}{{/if}}
+          {{#if date}}Published: {{formatTime date "YYYY-MM-DD" }}{{/if}}
       </div>
       {{{ contents }}}
     </article>

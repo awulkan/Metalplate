@@ -7,6 +7,11 @@ const assets = require('metalsmith-assets');
 const sitemap = require('metalsmith-sitemap');
 const pagination = require('metalsmith-pagination');
 const handlebars = require("handlebars");
+const moment = require("moment");
+
+handlebars.registerHelper("formatTime", (date, format) => {
+    return moment(date).format(format);
+});
 
 metalsmith(__dirname)
     .metadata({

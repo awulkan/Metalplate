@@ -61,6 +61,7 @@ metalsmith(__dirname)
     }))
     .use(sitemap({
         "hostname": "https://www.example.com",
+        "pattern": ["**/*.html","!page/**"],
         "omitIndex": true
     }))
     .build((err) => {

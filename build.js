@@ -6,12 +6,12 @@ const permalinks = require("metalsmith-permalinks");
 const assets = require('metalsmith-assets');
 const sitemap = require('metalsmith-sitemap');
 const pagination = require('metalsmith-pagination');
-const handlebars = require("handlebars");
+const nunjucks = require("nunjucks");
 const moment = require("moment");
 
-handlebars.registerHelper("formatTime", (date, format) => {
-    return moment(date).format(format);
-});
+// handlebars.registerHelper("formatTime", (date, format) => {
+//     return moment(date).format(format);
+// });
 
 metalsmith(__dirname)
     .metadata({
@@ -53,7 +53,7 @@ metalsmith(__dirname)
         destination: './assets/css' // relative to the build directory
     }))
     .use(layouts({
-        engine: "handlebars",
+        engine: "nunjucks",
         directory: "./layouts",
         default: "article.html",
         pattern: ["*/*/*.html", "*/*.html", "*.html"],

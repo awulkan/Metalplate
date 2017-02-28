@@ -1,12 +1,12 @@
-{{> header }}
+{% include './layouts/partials/header.html' %}
     <header>
         <a class="back-to-index" href="/">&larr; Home</a>
     </header>
     <article>
       <h1>{{ title }}</h1>
       <div class="meta">
-          {{#if date}}Published: {{formatTime date "YYYY-MM-DD" }}{{/if}}
+          {% if date %}Published: {{date}}{% endif %}
       </div>
-      {{{ contents }}}
+      {{ contents }}
     </article>
-{{> footer }}
+{% include './layouts/partials/footer.html' %}

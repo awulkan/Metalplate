@@ -1,19 +1,22 @@
-{{> header }}
+{% include './layouts/partials/header.html' %}
 <h1>{{ site.name }}</h1>
 
-{{#each pagination.files}}
+{% for file in pagination.files %}
 <ul class="recent">
     <li>
-        <div class="title"><a href="/{{ path }}/">{{ title }}</a></div>
-        <div class="date">{{formatTime date "YYYY-MM-DD" }}</div>
+        <div class="title"><a href="/{{ file.path }}/">{{ file.title }}</a></div>
+        <div class="date">{{ file.date }}</div>
     </li>
 </ul>
-{{/each}}
+{% endfor %}
 
-{{#if pagination.previous}}
-    <a href="/{{pagination.previous.path}}{{#if pagination.previous.path}}/{{/if}}">Previous</a>
-{{/if}}
-{{#if pagination.next}}
-    <a href="/{{pagination.next.path}}/">Next</a>
-{{/if}}
-{{> footer }}
+{% if pagination.previous %}
+    <a href="/{{pagination.previous.path}}{% if pagination.previous.path %}/{% endif %}">Newer</a>
+{% endif %}
+{% if pagination %}
+{{pagination.num}}
+{% endif %}
+{% if pagination.next %}
+    <a href="/{{pagination.next.path}}/">Older</a>
+{% endif %}
+{% include './layouts/partials/footer.html' %}

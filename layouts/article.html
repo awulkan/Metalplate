@@ -7,6 +7,6 @@
       <div class="meta">
           {% if date %}Published: {{date}}{% endif %}
       </div>
-      {{ contents }}
+      {{ contents | safe}}
     </article>
 {% include './layouts/partials/footer.html' %}
